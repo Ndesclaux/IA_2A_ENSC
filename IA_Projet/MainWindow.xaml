@@ -1,0 +1,84 @@
+﻿<Window x:Class="IA_Projet.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IA_Projet"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1250">
+    <Grid Margin="0,0,-6.4,-19.2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="2.8*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <GroupBox Grid.Column="0" Header="Paramètres" HorizontalAlignment="Left" Height="617" VerticalAlignment="Center" Width="302" FontSize="32">
+            <StackPanel VerticalAlignment="Center">
+                <GroupBox Header="Point de départ" FontSize="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <TextBlock TextWrapping="Wrap" Text="X :" FontSize="20" Margin="0,0,10,0"/>
+                            <TextBox  x:Name="xStartTextBox" TextWrapping="Wrap" Text="0" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <TextBlock TextWrapping="Wrap" Text="Y :" FontSize="20" Margin="0,0,10,0"/>
+                            <TextBox  x:Name="yStartTextBox" TextWrapping="Wrap" Text="0" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
+                        </StackPanel>
+
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Point d'arrivée" FontSize="20" Margin="0,35,0,0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" Orientation="Horizontal">
+                            <TextBlock TextWrapping="Wrap" Text="X :" FontSize="20" Margin="0,0,10,0"/>
+                            <TextBox  x:Name="xEndTextBox" TextWrapping="Wrap" Text="200" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal">
+                            <TextBlock TextWrapping="Wrap" Text="Y :" FontSize="20" Margin="0,0,10,0"/>
+                            <TextBox  x:Name="yEndTextBox" TextWrapping="Wrap" Text="200" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
+                        </StackPanel>
+
+                    </Grid>
+                </GroupBox>
+                <GroupBox Header="Direction du vent" FontSize="20" Margin="0,50,0,0">
+                    <StackPanel>
+                        <ComboBox x:Name="comboBox_vent" SelectedItem="0" SelectionChanged="comboBox_vent_SelectionChanged" SelectedIndex="0">
+                            <Label Content="a"></Label>
+                            <Label Content="b"></Label>
+                            <Label Content="c"></Label>
+                        </ComboBox>
+                    </StackPanel>
+                </GroupBox>
+                <Button x:Name="Start" Height="50" Margin="0,100,0,0" Click="Start_Click" Content="Start"/>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Grid.Column="1" Header="Simulation" HorizontalAlignment="Left" Height="617" VerticalAlignment="Center" Width="831" FontSize="32">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" x:Name="_grid" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="500" Margin="30,31,0,0" Background="#FF1A58C5"/>
+                <GroupBox Header="Résultats" Grid.Column="1">
+                    <StackPanel>
+                        <GroupBox Header="Resultat 1" FontSize="20" Margin="0,50,0,0">
+                            <Label Content="Resultat qu'on veut afficher" FontSize="16"></Label>
+                        </GroupBox>
+                        <GroupBox Header="Resultat 2" FontSize="20" Margin="0,50,0,0">
+                            <Label Content="Resultat qu'on veut afficher" FontSize="16"></Label>
+                        </GroupBox>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+        </GroupBox>
+        
+    </Grid>
+</Window>

@@ -1,0 +1,14 @@
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\bin\Debug\IA_Projet.exe.config
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\bin\Debug\IA_Projet.exe
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\bin\Debug\IA_Projet.pdb
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\IA_Projet.csprojAssemblyReference.cache
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\MainWindow.g.cs
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\App.g.cs
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\IA_Projet_MarkupCompile.cache
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\IA_Projet_MarkupCompile.lref
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\MainWindow.baml
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\IA_Projet.g.resources
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\IA_Projet.Properties.Resources.resources
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\IA_Projet.csproj.GenerateResource.cache
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\IA_Projet.exe
+C:\Users\ndesc\Documents\ENSC\Cours\2A\IA\IA_Projet\IA_Projet\obj\Debug\IA_Projet.pdb
