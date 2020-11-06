@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,12 @@ namespace IA_Projet
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        public static double _xStart;
+        public static double _yStart;
+        public static double _xEnd;
+        public static double _yEnd;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -44,7 +51,7 @@ namespace IA_Projet
                 Ellipse eStart = new Ellipse();
                 eStart.Width = 5;
                 eStart.Height = 5;
-                SolidColorBrush brush = new SolidColorBrush(Colors.LawnGreen);
+                SolidColorBrush brush = new SolidColorBrush(Colors.Green);
                 eStart.Stroke = brush;
                 eStart.Fill = brush;
                 eStart.HorizontalAlignment = HorizontalAlignment.Left;
@@ -68,7 +75,40 @@ namespace IA_Projet
 
         private void comboBox_vent_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string res = comboBox_vent.SelectedItem.ToString();
 
+            switch (res)
+            {
+                case "a":
+
+                    _xStart = 100;
+                    _yStart = 200;
+
+                    _xEnd = 200;
+                    _yEnd = 100;
+
+                    break;
+
+                case "b":
+
+                    _xStart = 100;
+                    _yStart = 200;
+
+                    _xEnd = 200;
+                    _yEnd = 100;
+
+                    break;
+
+                case "c":
+
+                    _xStart = 200;
+                    _yStart = 100;
+
+                    _xEnd = 100;
+                    _yEnd = 200;
+
+                    break;
+            }
         }
     }
 }

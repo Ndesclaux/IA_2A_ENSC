@@ -22,11 +22,11 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Orientation="Horizontal">
                             <TextBlock TextWrapping="Wrap" Text="X :" FontSize="20" Margin="0,0,10,0"/>
-                            <TextBox  x:Name="xStartTextBox" TextWrapping="Wrap" Text="0" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
+                            <TextBox  x:Name="xStartTextBox" TextWrapping="Wrap" Text="20" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <TextBlock TextWrapping="Wrap" Text="Y :" FontSize="20" Margin="0,0,10,0"/>
-                            <TextBox  x:Name="yStartTextBox" TextWrapping="Wrap" Text="0" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
+                            <TextBox  x:Name="yStartTextBox" TextWrapping="Wrap" Text="20" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
                         </StackPanel>
 
                     </Grid>
@@ -66,7 +66,7 @@
                     <ColumnDefinition Width="4*"></ColumnDefinition>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" x:Name="_grid" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="500" Margin="30,31,0,0" Background="#FF1A58C5"/>
+                <Grid Grid.Column="0" x:Name="_grid" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="500" Margin="30,31,0,0" Background="#FF42C8F1"/>
                 <GroupBox Header="Résultats" Grid.Column="1">
                     <StackPanel>
                         <GroupBox Header="Resultat 1" FontSize="20" Margin="0,50,0,0">
