@@ -21,11 +21,18 @@ namespace IA_Projet
     /// </summary>
     public partial class MainWindow : Window
     {
+        public const int GRID_SIZE = 300;
+
 
         public static double _xStart;
         public static double _yStart;
         public static double _xEnd;
         public static double _yEnd;
+
+        public static double _distNode = 10;
+        public static int _nbNodeVoisin = 15;
+
+        public static string _cas;
 
         public MainWindow()
         {
@@ -40,13 +47,31 @@ namespace IA_Projet
 
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            _grid.Children.Clear();
+            //_grid.Children.Clear();
+
             
             if (xStartTextBox.Text != null && yStartTextBox.Text != null && xEndTextBox.Text != null &&
                 yEndTextBox.Text != null)
             {
-                Point pStart = new Point(Double.Parse(xStartTextBox.Text), Double.Parse(yStartTextBox.Text));
-                Point pEnd = new Point(Double.Parse(xEndTextBox.Text), Double.Parse(yEndTextBox.Text));
+                double xTextStart = Double.Parse(xStartTextBox.Text);
+                double yTextStart = Double.Parse(yStartTextBox.Text);
+
+                double xTextEnd = Double.Parse(xEndTextBox.Text);
+                double yTextEnd = Double.Parse(yEndTextBox.Text);
+
+
+                //On ramène sur 300x300
+                /*xTextStart = (xTextStart * _grid.ActualWidth) / GRID_SIZE;
+                yTextStart = (yTextStart * _grid.ActualHeight) / GRID_SIZE;
+
+                xTextEnd = (xTextEnd * _grid.ActualWidth) / GRID_SIZE;
+                yTextEnd = (yTextEnd * _grid.ActualHeight) / GRID_SIZE;
+
+                Debug.WriteLine("Start : ({0},{1})", xTextStart, yTextStart);
+                Debug.WriteLine("End : ({0},{1})", xTextEnd, yTextEnd);*/
+
+                Node2 pStart = new Node2(xTextStart, yTextStart);
+                Node2 pEnd = new Node2(xTextEnd, yTextEnd);
 
                 Ellipse eStart = new Ellipse();
                 eStart.Width = 5;
@@ -70,14 +95,58 @@ namespace IA_Projet
 
                 _grid.Children.Add(eStart);
                 _grid.Children.Add(eEnd);
+
+                /*List<GenericNode> l = pStart.GetListSucc();
+
+                foreach (var genericNode in l)
+                {
+                    Node2 N = (Node2) genericNode;
+
+                    Ellipse ellipse = new Ellipse();
+                    ellipse.Width = 5;
+                    ellipse.Height = 5;
+                    SolidColorBrush brush2 = new SolidColorBrush(Colors.Black);
+                    ellipse.Stroke = brush2;
+                    ellipse.Fill = brush2;
+                    ellipse.HorizontalAlignment = HorizontalAlignment.Left;
+                    ellipse.VerticalAlignment = VerticalAlignment.Top;
+                    ellipse.Margin = new Thickness(N.X, N.Y, 0, 0);
+
+                    _grid.Children.Add(ellipse);
+                }*/
+
+                SearchTree tree = new SearchTree();
+
+                Stopwatch watch = new Stopwatch();
+
+                watch.Start();
+                List<GenericNode> solution = tree.RechercheSolutionAEtoile(new Node2(_xStart,_yStart));
+                watch.Stop();
+
+                PathFigure path = new PathFigure(new Point(pStart.X,pStart.Y), new List<PathSegment>(), false);
+
+                foreach (var node in solution)
+                {
+                    Node2 p = (Node2) node;
+                    path.Segments.Add(new LineSegment(new Point(p.X,p.Y), true));
+                }
+                
+                chemin.Figures.Clear();
+                chemin.Figures.Add(path);
+
+                Node2 pFinal = (Node2)solution.Last();
+                _tempsParcours.Content = pFinal.GetGCost().ToString();
+                _tempsCalcul.Content = $"{watch.Elapsed.Minutes} min {watch.Elapsed.Seconds} sec {watch.Elapsed.Milliseconds} ms";
             }
         }
 
         private void comboBox_vent_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string res = comboBox_vent.SelectedItem.ToString();
+            _cas = ((Label)comboBox_vent.SelectedItem).Content.ToString();
+            
+            Debug.WriteLine("Cas : " + _cas);
 
-            switch (res)
+            switch (_cas)
             {
                 case "a":
 
@@ -108,7 +177,31 @@ namespace IA_Projet
                     _yEnd = 200;
 
                     break;
+
+                default:
+                    _cas = "a";
+
+                    _xStart = 100;
+                    _yStart = 200;
+
+                    _xEnd = 200;
+                    _yEnd = 100;
+                    break;
             }
+
+            Debug.WriteLine("Point de départ : ({0},{1})", _xStart, _yStart);
+            Debug.WriteLine("Point d'arrivée : ({0},{1})", _xEnd, _yEnd);
+
+            this.pointDepartGroupBox.IsEnabled = true;
+            this.pointArriveeGroupBox.IsEnabled = true;
+
+            this.xStartTextBox.Text = _xStart.ToString();
+            this.yStartTextBox.Text = _yStart.ToString();
+            this.xEndTextBox.Text = _xEnd.ToString();
+            this.yEndTextBox.Text = _yEnd.ToString();
+
+            this.pointDepartGroupBox.IsEnabled = false;
+            this.pointArriveeGroupBox.IsEnabled = false;
         }
     }
 }

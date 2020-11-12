@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <GroupBox Grid.Column="0" Header="Paramètres" HorizontalAlignment="Left" Height="617" VerticalAlignment="Center" Width="302" FontSize="32">
             <StackPanel VerticalAlignment="Center">
-                <GroupBox Header="Point de départ" FontSize="20">
+                <GroupBox x:Name="pointDepartGroupBox" Header="Point de départ" FontSize="20">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
@@ -22,16 +22,16 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Orientation="Horizontal">
                             <TextBlock TextWrapping="Wrap" Text="X :" FontSize="20" Margin="0,0,10,0"/>
-                            <TextBox  x:Name="xStartTextBox" TextWrapping="Wrap" Text="20" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
+                            <TextBox  x:Name="xStartTextBox" TextWrapping="Wrap" Text="100" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <TextBlock TextWrapping="Wrap" Text="Y :" FontSize="20" Margin="0,0,10,0"/>
-                            <TextBox  x:Name="yStartTextBox" TextWrapping="Wrap" Text="20" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
+                            <TextBox  x:Name="yStartTextBox" TextWrapping="Wrap" Text="200" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
                         </StackPanel>
 
                     </Grid>
                 </GroupBox>
-                <GroupBox Header="Point d'arrivée" FontSize="20" Margin="0,35,0,0">
+                <GroupBox x:Name="pointArriveeGroupBox" Header="Point d'arrivée" FontSize="20" Margin="0,35,0,0">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition></ColumnDefinition>
@@ -43,7 +43,7 @@
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Horizontal">
                             <TextBlock TextWrapping="Wrap" Text="Y :" FontSize="20" Margin="0,0,10,0"/>
-                            <TextBox  x:Name="yEndTextBox" TextWrapping="Wrap" Text="200" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
+                            <TextBox  x:Name="yEndTextBox" TextWrapping="Wrap" Text="100" Width="50" PreviewTextInput="TextBox_PreviewTextInput"/>
                         </StackPanel>
 
                     </Grid>
@@ -66,14 +66,22 @@
                     <ColumnDefinition Width="4*"></ColumnDefinition>
                     <ColumnDefinition Width="2*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                <Grid Grid.Column="0" x:Name="_grid" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="500" Margin="30,31,0,0" Background="#FF42C8F1"/>
+                <Grid Grid.Column="0" x:Name="_grid" HorizontalAlignment="Left" Height="480" VerticalAlignment="Top" Width="480" Margin="30,31,0,0" Background="#FF42C8F1">
+                    <Path Stroke="#000000" StrokeThickness="2" >
+                        <Path.Data>
+                            <PathGeometry x:Name="chemin">
+                                
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+                </Grid>
                 <GroupBox Header="Résultats" Grid.Column="1">
                     <StackPanel>
-                        <GroupBox Header="Resultat 1" FontSize="20" Margin="0,50,0,0">
-                            <Label Content="Resultat qu'on veut afficher" FontSize="16"></Label>
+                        <GroupBox Header="Temps de voyage" FontSize="20" Margin="0,50,0,0">
+                            <Label x:Name="_tempsParcours" Content="" FontSize="16"></Label>
                         </GroupBox>
-                        <GroupBox Header="Resultat 2" FontSize="20" Margin="0,50,0,0">
-                            <Label Content="Resultat qu'on veut afficher" FontSize="16"></Label>
+                        <GroupBox Header="Temps de calcul" FontSize="20" Margin="0,50,0,0">
+                            <Label x:Name="_tempsCalcul" Content="" FontSize="16"></Label>
                         </GroupBox>
                     </StackPanel>
                 </GroupBox>

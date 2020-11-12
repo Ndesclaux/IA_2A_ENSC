@@ -58,6 +58,7 @@
     <Compile Include="GenericNode.cs" />
     <Compile Include="Node2.cs" />
     <Compile Include="SearchTree.cs" />
+    <Compile Include="Vent.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
