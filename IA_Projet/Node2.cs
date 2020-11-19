@@ -122,9 +122,7 @@ namespace IA_Projet
         /// <returns>Renvoie le temps minimum de trajet entre les 2 points</returns>
         public override double CalculeHCost()
         {
-           // Debug.WriteLine("----------- Calcul de H --------------");
-
-            if (this.EndState())
+           if (this.EndState())
                 return 0;
             double h = 0.0;
 
@@ -138,20 +136,10 @@ namespace IA_Projet
 
             double dist = Math.Sqrt(deltaX + deltaY);
 
-            /*double angle = Math.Acos(Math.Sqrt(deltaY) / dist) * 180 / Math.PI;
-            int directionBateau = Convert.ToInt32(Math.Round(angle));
-            //Debug.WriteLine("Direction du bateau : {0}°", directionBateau);
-
-            int directionOptiVent = (directionBateau + 45) % 360;*/
-            //Debug.WriteLine("Direction du vent : {0}°", directionOptiVent);
-
-            //int alpha = Convert.ToInt32(Math.Abs(directionOptiVent - directionBateau));
             int alpha = 45;
             double vitesseBateau = GetBoatSpeed(vitesseVent, alpha);
 
             h = dist / vitesseBateau;
-
-           // Debug.WriteLine("----------- Calcul de H FIN --------------");
             return h;
         }
 

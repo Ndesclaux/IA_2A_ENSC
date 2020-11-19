@@ -29,8 +29,8 @@ namespace IA_Projet
         public static double _xEnd;
         public static double _yEnd;
 
-        public static double _distNode = 10;
-        public static int _nbNodeVoisin = 15;
+        public static double _distNode = 2;
+        public static int _nbNodeVoisin = 4;
 
         public static string _cas;
 
